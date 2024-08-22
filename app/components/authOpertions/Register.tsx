@@ -3,6 +3,7 @@
 import { ChangeEventHandler, FormEventHandler, useState } from "react";
 import { useRouter } from "next/navigation";
 import { registerUser } from "@/api";
+import { toast } from "react-hot-toast";
 
 type FormObject = {
   userName: string;
@@ -25,13 +26,14 @@ const Register = () => {
   const handleSubmission: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
 
-    registerUser(formObject)
-      .then(() => {
-        console.log("the user has been registered!");
-        router.push("/dashboard");
+    toast
+      .promise(registerUser(formObject), {
+        loading: "Registering...",
+        success: <b>Registration successful!</b>,
+        error: (error) => <b>{error.message}</b>,
       })
-      .catch((error) => {
-        console.error("there are error in register opertion: ", error);
+      .then(() => {
+        router.push("/dashboard");
       });
   };
 
@@ -188,9 +190,7 @@ const Register = () => {
       </div>
 
       <div className="mt-6">
-        <button type="submit" className="w-full btn btn-primary text-white">
-          Sign Up
-        </button>
+        <button className="w-full btn btn-primary text-white">Sign Up</button>
 
         <div className="mt-6 text-center ">
           <a
