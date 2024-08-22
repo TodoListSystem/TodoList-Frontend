@@ -1,10 +1,9 @@
 "use client";
 
 import { FaPlus } from "react-icons/fa";
-import Modal from "./Modal";
+import Modal from "./shared/Modal";
 import { FormEventHandler, useState } from "react";
-import { createNewTask } from "@/api";
-import { ITask } from "@/types/tasks";
+import { ITask } from "@/types/globalTypes";
 
 interface AddTaskProp {
   handleCreatedNewTask: (newTask: ITask) => void;
@@ -16,13 +15,13 @@ const AddTask: React.FC<AddTaskProp> = ({ handleCreatedNewTask }) => {
 
   const handleSubmitTask: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
-    const resp = await createNewTask({
-      id: Math.floor(Math.random() * 1000).toString(),
-      text: addNewTask,
-    });
-    handleCreatedNewTask(resp);
-    setAddeNewTask("");
-    setModalOpen(false);
+    // const resp = await createNewTask({
+    //   id: Math.floor(Math.random() * 1000).toString(),
+    //   text: addNewTask,
+    // });
+    // handleCreatedNewTask(resp);
+    // setAddeNewTask("");
+    // setModalOpen(false);
   };
 
   return (

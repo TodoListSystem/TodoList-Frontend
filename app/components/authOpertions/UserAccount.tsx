@@ -1,4 +1,3 @@
-import React, { FormEventHandler } from "react";
 import Register from "./Register";
 import Image from "next/image";
 
@@ -14,6 +13,7 @@ const UserAccount = () => {
               width={150}
               height={150}
               priority
+              unoptimized
             />
           </div>
           <div className="flex items-center justify-center mt-6">
