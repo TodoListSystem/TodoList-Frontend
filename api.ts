@@ -1,5 +1,5 @@
 import axios from "axios";
-import { FormObject, ITask } from "./types/tasks";
+import { FormObject, ITask } from "./types/globalTypes";
 
 const BASE_URL = "http://localhost:5000/api/todolist/";
 
@@ -25,7 +25,7 @@ const BASE_URL = "http://localhost:5000/api/todolist/";
 
 export const registerUser = (registerObj: FormObject): Promise<any> => {
   return axios
-    .post(`${BASE_URL}/user/register`, registerObj)
+    .post(`${BASE_URL}user/register`, registerObj)
     .then((response) => {
       // check the status code and save the token if the opertions has been success
       if (response.status === 201) {
@@ -40,6 +40,7 @@ export const registerUser = (registerObj: FormObject): Promise<any> => {
       );
     })
     .catch((error) => {
-      return Promise.reject(error);
+      const message = error.response?.data?.msg || "Registration failed.";
+      return Promise.reject(new Error(message));
     });
 };
