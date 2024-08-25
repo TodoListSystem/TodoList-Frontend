@@ -1,9 +1,9 @@
 "use client";
 
-import { ChangeEventHandler, FormEventHandler, useState } from "react";
+import React, { ChangeEventHandler, FormEventHandler, useState } from "react";
 import { useRouter } from "next/navigation";
-import { registerUser } from "@/api";
 import { toast } from "react-hot-toast";
+import { userService } from "@/services/UserService";
 
 type FormObject = {
   userName: string;
@@ -13,7 +13,11 @@ type FormObject = {
   password: string;
 };
 
-const Register = () => {
+type RegisterProps = {
+  handleSetFormType: React.Dispatch<React.SetStateAction<"login" | "register">>;
+};
+
+const Register: React.FC<RegisterProps> = ({ handleSetFormType }) => {
   const router = useRouter();
   const [formObject, setFormObject] = useState<FormObject>({
     userName: "",
@@ -26,15 +30,25 @@ const Register = () => {
   const handleSubmission: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
 
-    toast
-      .promise(registerUser(formObject), {
-        loading: "Registering...",
-        success: <b>Registration successful!</b>,
-        error: (error) => <b>{error.message}</b>,
-      })
-      .then(() => {
-        router.push("/dashboard");
-      });
+    // check if all form inputs are empty
+    for (let key in formObject) {
+      if (formObject[key as keyof FormObject] === "") {
+        toast.error("All inputs must be entered!");
+        return;
+      }
+    }
+
+    try {
+      const response = await userService.registerUser(formObject);
+
+      // save the data of user in local storage
+      localStorage.setItem("user", JSON.stringify(response));
+
+      router.push("/dashboard");
+      toast.success("Registration successful!");
+    } catch (error) {
+      if (error instanceof Error) toast.error(error.message);
+    }
   };
 
   const handleFormChange: ChangeEventHandler<HTMLInputElement> = (e) => {
@@ -72,7 +86,7 @@ const Register = () => {
           name="userName"
           value={formObject.userName}
           onChange={handleFormChange}
-          placeholder="UserName"
+          placeholder="User Name"
           className="block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
         />
       </div>
@@ -194,8 +208,8 @@ const Register = () => {
 
         <div className="mt-6 text-center ">
           <a
-            href="#"
-            className="text-sm text-blue-500 hover:underline dark:text-blue-400"
+            onClick={() => handleSetFormType("login")}
+            className="text-sm text-blue-500 hover:underline dark:text-blue-400 cursor-pointer"
           >
             Already have an account?
           </a>
