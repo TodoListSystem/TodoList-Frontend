@@ -1,13 +1,13 @@
-import { ITask } from "@/types/tasks";
+import { ITaskList } from "@/types/global-types";
 
 interface TaskProp {
-  task: ITask;
+  task: ITaskList;
 }
 
 const Task: React.FC<TaskProp> = ({ task }) => {
   return (
     <tr>
-      <td>{task.text}</td>
+      <td>{task.content}</td>
       <td>Opertions</td>
     </tr>
   );
