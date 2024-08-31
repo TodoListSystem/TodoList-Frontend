@@ -34,8 +34,8 @@ const AuthForm = () => {
               onClick={() => setFormType("login")}
               className={`w-1/3 pb-4 font-medium text-center capitalize cursor-pointer ${
                 formType === "login"
-                  ? "border-b-2 dark:border-blue-400 dark:text-white text-gray-800"
-                  : "border-b dark:text-gray-300 dark:border-gray-400"
+                  ? "border-b-2 border-blue-400 text-white"
+                  : "border-b text-gray-300 border-gray-400"
               }`}
             >
               sign in
@@ -44,8 +44,8 @@ const AuthForm = () => {
               onClick={() => setFormType("register")}
               className={`w-1/3 pb-4 font-medium text-center capitalize cursor-pointer ${
                 formType === "register"
-                  ? "border-b-2 dark:border-blue-400 dark:text-white text-gray-800"
-                  : "border-b dark:text-gray-300 dark:border-gray-400"
+                  ? "border-b-2 border-blue-400 text-white"
+                  : "border-b text-gray-300 border-gray-400"
               }`}
             >
               sign up

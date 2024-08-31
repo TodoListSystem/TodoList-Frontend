@@ -67,7 +67,7 @@ const Register: React.FC<RegisterProps> = ({ handleSetFormType }) => {
         <span className="absolute">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="w-6 h-6 mx-3 text-gray-300 dark:text-gray-500"
+            className="w-6 h-6 mx-3 text-gray-500"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -87,7 +87,7 @@ const Register: React.FC<RegisterProps> = ({ handleSetFormType }) => {
           value={formObject.userName}
           onChange={handleFormChange}
           placeholder="User Name"
-          className="block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+          className="block w-full py-3 border rounded-lg px-11 bg-gray-900 text-gray-300 border-gray-600 focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
         />
       </div>
 
@@ -95,7 +95,7 @@ const Register: React.FC<RegisterProps> = ({ handleSetFormType }) => {
         <span className="absolute">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="w-6 h-6 mx-3 text-gray-300 dark:text-gray-500"
+            className="w-6 h-6 mx-3 text-gray-500"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -114,7 +114,7 @@ const Register: React.FC<RegisterProps> = ({ handleSetFormType }) => {
           name="firstName"
           value={formObject.firstName}
           onChange={handleFormChange}
-          className="block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+          className="block w-full py-3 border rounded-lg px-11 bg-gray-900 text-gray-300 border-gray-600 focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
           placeholder="First Name"
         />
       </div>
@@ -123,7 +123,7 @@ const Register: React.FC<RegisterProps> = ({ handleSetFormType }) => {
         <span className="absolute">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="w-6 h-6 mx-3 text-gray-300 dark:text-gray-500"
+            className="w-6 h-6 mx-3 text-gray-500"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -142,7 +142,7 @@ const Register: React.FC<RegisterProps> = ({ handleSetFormType }) => {
           name="lastName"
           value={formObject.lastName}
           onChange={handleFormChange}
-          className="block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+          className="block w-full py-3 border rounded-lg px-11 bg-gray-900 text-gray-300 border-gray-600 focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
           placeholder="Last Name"
         />
       </div>
@@ -151,7 +151,7 @@ const Register: React.FC<RegisterProps> = ({ handleSetFormType }) => {
         <span className="absolute">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="w-6 h-6 mx-3 text-gray-300 dark:text-gray-500"
+            className="w-6 h-6 mx-3 text-gray-500"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -170,7 +170,7 @@ const Register: React.FC<RegisterProps> = ({ handleSetFormType }) => {
           name="email"
           value={formObject.email}
           onChange={handleFormChange}
-          className="block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+          className="block w-full py-3 border rounded-lg px-11 bg-gray-900 text-gray-300 border-gray-600 focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
           placeholder="Email address"
         />
       </div>
@@ -179,7 +179,7 @@ const Register: React.FC<RegisterProps> = ({ handleSetFormType }) => {
         <span className="absolute">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="w-6 h-6 mx-3 text-gray-300 dark:text-gray-500"
+            className="w-6 h-6 mx-3 text-gray-500"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -198,7 +198,7 @@ const Register: React.FC<RegisterProps> = ({ handleSetFormType }) => {
           name="password"
           value={formObject.password}
           onChange={handleFormChange}
-          className="block w-full px-10 py-3 text-gray-700 bg-white border rounded-lg dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+          className="block w-full px-10 py-3 border rounded-lg bg-gray-900 text-gray-300 border-gray-600 focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
           placeholder="Password"
         />
       </div>
@@ -209,7 +209,7 @@ const Register: React.FC<RegisterProps> = ({ handleSetFormType }) => {
         <div className="mt-6 text-center ">
           <a
             onClick={() => handleSetFormType("login")}
-            className="text-sm text-blue-500 hover:underline dark:text-blue-400 cursor-pointer"
+            className="text-sm hover:underline text-blue-400 cursor-pointer"
           >
             Already have an account?
           </a>

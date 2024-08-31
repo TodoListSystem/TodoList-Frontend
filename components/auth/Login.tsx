@@ -35,7 +35,7 @@ const Login: React.FC<LoginProps> = ({ handleSetFormType }) => {
       };
 
       // save the data of user if he exists
-      localStorage.setItem("token", JSON.stringify(user));
+      localStorage.setItem("user", JSON.stringify(user));
 
       router.push("/dashboard");
       toast.success("You have successfully logged in");
@@ -61,7 +61,7 @@ const Login: React.FC<LoginProps> = ({ handleSetFormType }) => {
         <span className="absolute">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="w-6 h-6 mx-3 text-gray-300 dark:text-gray-500"
+            className="w-6 h-6 mx-3 text-gray-500"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -80,7 +80,7 @@ const Login: React.FC<LoginProps> = ({ handleSetFormType }) => {
           name="email"
           value={inputForm.email}
           onChange={handleFormChange}
-          className="block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+          className="block w-full py-3 border rounded-lg px-11 bg-gray-900 text-gray-300 border-gray-600 focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
           placeholder="Email address"
         />
       </div>
@@ -89,7 +89,7 @@ const Login: React.FC<LoginProps> = ({ handleSetFormType }) => {
         <span className="absolute">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="w-6 h-6 mx-3 text-gray-300 dark:text-gray-500"
+            className="w-6 h-6 mx-3 text-gray-500"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -108,7 +108,7 @@ const Login: React.FC<LoginProps> = ({ handleSetFormType }) => {
           name="password"
           value={inputForm.password}
           onChange={handleFormChange}
-          className="block w-full px-10 py-3 text-gray-700 bg-white border rounded-lg dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+          className="block w-full px-10 py-3 border rounded-lg bg-gray-900 text-gray-300 border-gray-600 focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
           placeholder="Password"
         />
       </div>
@@ -121,7 +121,7 @@ const Login: React.FC<LoginProps> = ({ handleSetFormType }) => {
         <div className="mt-6 text-center ">
           <a
             onClick={() => handleSetFormType("register")}
-            className="text-sm text-blue-500 hover:underline dark:text-blue-400 cursor-pointer"
+            className="text-sm hover:underline text-blue-400 cursor-pointer"
           >
             {"Don't have an account?"}
           </a>
