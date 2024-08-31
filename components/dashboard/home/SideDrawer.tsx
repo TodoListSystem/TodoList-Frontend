@@ -37,7 +37,7 @@ const SideDrawer: React.FC<SideDrawerProps> = ({ setActiveTab }) => {
             </div>
           </ul>
         </div>
-        <div className="p-4 mt-6 rounded-lg bg-blue-900">
+        <div className="p-4 mt-6 rounded-md bg-blue-900">
           <div className="flex items-center mb-3">
             <span className="text-sm font-semibold me-2 px-2.5 py-0.5 rounded bg-orange-200 text-orange-900">
               Beta
