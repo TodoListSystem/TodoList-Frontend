@@ -1,39 +1,45 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import AddTask from "../../components/AddTask";
-import { ITask } from "../../types/globalTypes";
-import TodoList from "../../components/TodoList";
 import { userService } from "@/services/UserService";
 import { useRouter } from "next/navigation";
+import logo from "../../public/images/logo.svg";
+import profilePicture from "../../public/images/profile-picture.jpg";
+import NavBar from "@/components/dashboard/home/NavBar";
+import SideDrawer from "@/components/dashboard/home/SideDrawer";
+import MyTasks from "@/components/dashboard/home/MyTasks";
+import CompletedTasks from "@/components/dashboard/CompletedTasks";
 
 const Dashboard: React.FC = () => {
   const router = useRouter();
   const [isUserLoggedIn, setIsUserLoggedIn] = useState<boolean>(false);
-  const [existingTasks, setExistingTasks] = useState<ITask[]>([]);
+  const [activeTab, setActiveTab] = useState<string>("my-tasks");
+
+  const renderContent = () => {
+    switch (activeTab) {
+      case "my-tasks":
+        return <MyTasks />;
+      case "completed-tasks":
+        return <CompletedTasks />;
+      default:
+        return <MyTasks />;
+    }
+  };
 
   useEffect(() => {
     if (userService.isUserLoggedIn()) setIsUserLoggedIn(true);
     else router.push("/");
   }, []);
 
-  const updateTaskList = (newTask: ITask) => {
-    setExistingTasks((prev) => [...prev, newTask]);
-  };
-
-  return (
+  return isUserLoggedIn ? (
     <>
-      {isUserLoggedIn && (
-        <main className="max-w-4xl mx-auto mt-10">
-          <div className="text-center my-5 flex flex-col gap-4">
-            <h2 className="text-2xl font-bold"> Todo List App </h2>
-            <AddTask handleCreatedNewTask={updateTaskList} />
-          </div>
-          <TodoList tasks={existingTasks} />
-        </main>
-      )}
+      <NavBar logo={logo} profilePicture={profilePicture} />
+      <SideDrawer setActiveTab={setActiveTab} />
+      <div className="p-4 sm:ml-64">
+        <div className="p-4 mt-14">{renderContent()}</div>
+      </div>
     </>
-  );
+  ) : null;
 };
 
 export default Dashboard;
