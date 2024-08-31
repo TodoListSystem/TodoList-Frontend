@@ -1,7 +1,7 @@
 "use client";
 
 import { userService } from "@/services/UserService";
-import { ILogin } from "@/types/globalTypes";
+import { ILogin } from "@/types/global-types";
 import { useRouter } from "next/navigation";
 import React, { ChangeEventHandler, FormEventHandler, useState } from "react";
 import toast from "react-hot-toast";

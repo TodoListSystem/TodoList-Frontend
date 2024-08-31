@@ -16,7 +16,7 @@ const AuthForm = () => {
   const FormComponent = FormMapping[formType];
 
   return (
-    <section className="bg-white" style={{ backgroundColor: "#1d232a" }}>
+    <section style={{ backgroundColor: "#1d232a" }}>
       <div className="container flex items-center justify-center min-h-screen px-6 mx-auto">
         <div className="w-full max-w-md">
           <div className="flex justify-center mx-auto">
