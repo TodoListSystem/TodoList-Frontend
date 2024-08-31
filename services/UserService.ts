@@ -1,4 +1,4 @@
-import { IUser } from "@/types/globalTypes";
+import { IUser } from "@/types/global-types";
 import { ApiService } from "./ApiService";
 
 class UserService extends ApiService {
@@ -47,6 +47,17 @@ class UserService extends ApiService {
     } catch (error) {
       throw error;
     }
+  }
+
+  singOutUser() {
+    const dataInLocal = localStorage.getItem("user");
+
+    // handle the case where the data might be null
+    if (!dataInLocal) {
+      throw new Error("No user data found in local storage.");
+    }
+
+    localStorage.removeItem("user");
   }
 }
 
