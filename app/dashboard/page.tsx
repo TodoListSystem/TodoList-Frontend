@@ -33,7 +33,11 @@ const Dashboard: React.FC = () => {
 
   return isUserLoggedIn ? (
     <>
-      <NavBar logo={logo} profilePicture={profilePicture} />
+      <NavBar
+        logo={logo}
+        profilePicture={profilePicture}
+        setActiveTab={setActiveTab}
+      />
       <SideDrawer setActiveTab={setActiveTab} />
       <div className="p-4 sm:ml-64">
         <div className="p-4 mt-14">{renderContent()}</div>
