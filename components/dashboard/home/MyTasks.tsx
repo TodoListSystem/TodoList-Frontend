@@ -15,7 +15,10 @@ const MyTasks = () => {
   return (
     <>
       <div className="p-5 mb-5 flex justify-between items-center rounded-lg bg-gray-800">
-        <h2 className="text-2xl font-bold"> Tasks to be completed </h2>
+        <h2 className="text-2xl font-bold text-gray-400">
+          {" "}
+          Tasks to be completed{" "}
+        </h2>
         <AddTask handleCreatedNewTask={updateTaskList} />
       </div>
       <TodoList tasks={existingTasks} />
