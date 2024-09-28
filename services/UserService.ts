@@ -1,13 +1,16 @@
-import { IUser } from "@/types/global-types";
+import { IApiResponse, IUser } from "@/types/global-types";
 import { ApiService } from "./ApiService";
 
-class UserService extends ApiService {
-  async registerUser(data: IUser): Promise<any> {
+export class UserService extends ApiService {
+  async registerUser(data: IUser): Promise<IApiResponse<any>> {
     try {
-      const response = await this.post<any>("/user/register", data);
+      const response = await this.post<IApiResponse<IUser>>(
+        "/user/register",
+        data
+      );
       return response;
     } catch (error) {
-      throw error;
+      throw new Error("Failed to register user. Please try again.");
     }
   }
 
