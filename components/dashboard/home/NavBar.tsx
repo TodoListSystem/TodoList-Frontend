@@ -1,5 +1,6 @@
 import { userService } from "@/services/UserService";
 import Image, { StaticImageData } from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React from "react";
 import toast from "react-hot-toast";
@@ -65,10 +66,10 @@ const NavBar: React.FC<NavBarProps> = ({
                 className="dropdown-content menu bg-base-100 rounded-box z-[1] w-40 p-2 shadow mt-2"
               >
                 <li>
-                  <a>
+                  <Link href={"/my-profile"}>
                     <CgProfile className="text-xl" />
                     My Profile
-                  </a>
+                  </Link>
                 </li>
                 <li onClick={handleUserSignOut}>
                   <a>
