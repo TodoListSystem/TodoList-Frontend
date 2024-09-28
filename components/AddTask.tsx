@@ -18,13 +18,14 @@ const AddTask: React.FC<AddTaskProp> = ({ handleCreatedNewTask }) => {
     title: "",
     content: "",
     note: "",
+    category: "",
   });
 
   const handleSubmitTask: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
 
-    if (!formObj.title || !formObj.content) {
-      toast.error("the tile and content must not be empty!");
+    if (!formObj.title || !formObj.content || !formObj.category) {
+      toast.error("the tile, content and category must not be empty!");
       return;
     }
 
@@ -39,6 +40,7 @@ const AddTask: React.FC<AddTaskProp> = ({ handleCreatedNewTask }) => {
         title: "",
         content: "",
         note: "",
+        category: "",
       });
     } catch (error) {
       toast.error("Your task has not been added");
@@ -68,6 +70,19 @@ const AddTask: React.FC<AddTaskProp> = ({ handleCreatedNewTask }) => {
       </button>
       <Modal isModalOpen={modalOpen} hideModal={setModalOpen}>
         <form onSubmit={handleSubmitTask}>
+          <label className="form-control w-full mb-4">
+            <div className="label">
+              <h1 className="text-2xl">Category</h1>
+            </div>
+            <select className="select input-bordered w-full">
+              <option disabled selected>
+                Select Your Category
+              </option>
+              <option>Experience Category</option>
+              <option>Learning Category</option>
+              <option>Work Category</option>
+            </select>
+          </label>
           <label className="form-control w-full mb-4">
             <div className="label">
               <h1 className="text-2xl">Title</h1>
