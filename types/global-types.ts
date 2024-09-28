@@ -1,3 +1,9 @@
+export interface IApiResponse<T> {
+  data: T;
+  success: boolean;
+  message?: string;
+}
+
 export interface ITask {
   id: string;
   text: string;
@@ -21,6 +27,7 @@ export interface INewTask {
   title: string;
   content: string;
   note: string;
+  category: string;
 }
 
 export interface ITaskList {
